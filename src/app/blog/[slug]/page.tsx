@@ -50,6 +50,13 @@ export default async function BlogPostPage({ params }: BlogParams) {
           {post.metadata.title}
         </h1>
         <div className="flex items-center gap-3 pt-2">
+          {post.metadata.author?.avatar && (
+            <img
+              src={post.metadata.author.avatar}
+              alt={post.metadata.author.name}
+              className="w-8 h-8 rounded-full"
+            />
+          )}
           <div className="flex flex-col">
             <span className="text-sm font-semibold text-foreground">
               {post.metadata.author?.name || "Lijo Joseph"}
@@ -62,6 +69,16 @@ export default async function BlogPostPage({ params }: BlogParams) {
           </div>
         </div>
       </header>
+
+      {post.metadata.coverImage && (
+        <div className="my-8">
+          <img
+            src={post.metadata.coverImage}
+            alt={post.metadata.title}
+            className="w-full h-auto rounded-lg"
+          />
+        </div>
+      )}
 
       <div className="prose dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-primary hover:prose-a:underline">
         {/* Highlight-start */}
