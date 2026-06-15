@@ -37,7 +37,7 @@ export default async function BlogPostPage({ params }: BlogParams) {
   }
 
   return (
-    <article className="max-w-3xl mx-auto px-6 py-12 space-y-8">
+    <article className="max-w-4xl mx-auto px-6 py-16">
       <header className="space-y-4 border-b border-border pb-8">
         <p className="text-sm font-mono text-muted-foreground">
           {new Date(post.metadata.publishedAt).toLocaleDateString("en-US", {
