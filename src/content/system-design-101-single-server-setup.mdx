@@ -1,0 +1,42 @@
+---
+title: "Single Server Setup"
+publishedAt: "2026-06-16"
+summary: "This blurb explains how a single server works"
+tags: ["systemdesign101", "system design"]
+author:
+  name: "Lijo Joseph"
+  avatar: "/images/authors/lijo.jpg"
+  twitter: "@lijojosef"
+coverImage: "/images/scaling.png"
+status: "published"
+featured: true
+---
+
+# Chapter 1: Single Server Setup
+
+This chapter acts as a stepping stone, demonstrating how a small application grows from supporting a handful of users to serving millions. It provides a baseline understanding of how client-server architecture operates before complexities like scaling, redundancy, and high availability are introduced.
+
+### Key Concepts
+
+1. **The All-in-One Component Architecture**
+   In a single server setup, everything runs on a single machine (typically an EC2 instance or a physical server). This single machine handles all aspects of the application:
+   * **Web Server:** Handles incoming HTTP/HTTPS requests from clients (browsers or mobile apps).
+   * **Application Logic:** Runs the core business logic and code (e.g., Node.js, Java, Python).
+   * **Database:** Stores and manages persistent user data, configurations, and application state.
+
+2. **The Request-Response Flow**
+   End-to-end journey of a single network request:
+   * **Domain Name System (DNS) Resolution:** The user enters a URL (e.g., `api.mysite.com`). The browser requests the DNS server to translate this human-readable domain name into an Internet Protocol (IP) address.
+   * **IP Address Return:** The DNS server returns the unique IP address of the single server to the client.
+   * **Direct Connection:** The client establishes a direct network connection (via HTTP/TCP) using the retrieved IP address.
+   * **Response Delivery:** The server processes the request, queries its local database if necessary, and sends back an HTTP response (usually in HTML or JSON format) to be rendered by the client.
+
+### Limitations of a Single Server Setup
+
+While a single server setup is incredibly easy to deploy, cost-effective for MVPs, and straightforward to debug, it quickly hits a ceiling due to two major flaws:
+
+* **Single Point of Failure (SPOF):** If the server crashes, experiences a hardware failure, or goes offline for maintenance, the entire application goes down immediately. There is no fallback or redundancy.
+* **Performance Bottlenecks:** A single machine has finite hardware resources (CPU, RAM, Disk I/O). As concurrent user traffic increases, the server will quickly run out of memory or CPU cycles, leading to high latency, timeouts, and eventual crashes.
+
+### The Transition to Scaling
+The chapter uses the single server setup as a foil to introduce the necessity of architectural evolution. It sets up the logical progression for subsequent chapters, explaining that to overcome these limitations, an engineer must learn to decouple components—moving the database to a separate server, introducing load balancers, and choosing between **Vertical Scaling** (adding more power to the single machine) and **Horizontal Scaling** (adding more machines to the pool).
