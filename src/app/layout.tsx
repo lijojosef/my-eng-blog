@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -30,7 +31,27 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
+          <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <Link 
+              href="/" 
+              className="text-base font-bold tracking-tight text-foreground hover:text-emerald-600 transition-colors"
+            >
+              Lijo Joseph
+            </Link>
+            <nav className="flex items-center gap-4">
+              <Link 
+                href="/about" 
+                className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition-colors shadow-sm"
+              >
+                About Me
+              </Link>
+            </nav>
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
