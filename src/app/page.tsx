@@ -1,8 +1,13 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
-import { getAllPosts } from "@/lib/mdx";
+import { getAllPosts, generateRssFeed } from "@/lib/mdx"; // 1. Added the generateRssFeed import
 
 export default function BlogHomepage() {
+  // 2. Execute the RSS parser to output the public target folder asset during builds
+  if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
+    generateRssFeed();
+  }
+
   // Fetch all posts
   const allPosts = getAllPosts();
 
