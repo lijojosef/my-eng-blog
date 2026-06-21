@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import Link from "next/link";
+import React from "react";
 
 interface Milestone {
   year: string;
@@ -23,7 +23,7 @@ const milestones: Milestone[] = [
           href="https://github.com/lijojosef/traffic_congestion_control" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-emerald-600 hover:underline font-medium"
+          className="text-emerald-500 hover:underline font-medium"
         >
           Traffic Congestion Control System
         </a>.
@@ -35,7 +35,7 @@ const milestones: Milestone[] = [
     title: "System Engineer",
     location: "Tata Consultancy Services (TCS), Bangalore, India",
     description: (
-      <ul className="list-disc pl-5 space-y-2 mt-2 text-zinc-600 dark:text-zinc-300">
+      <ul className="list-disc pl-5 space-y-2 mt-2 text-muted-foreground">
         <li>
           Part of implementation of Asset Servicing Products within TCS BaNCS for Capital Markets, 
           orchestrating the seamless processing of Corporate Actions for a diverse clientele in the US and UK.
@@ -63,7 +63,7 @@ const milestones: Milestone[] = [
     title: "Mentor",
     location: "SURE Trust ProEd, Remote",
     description: (
-      <ul className="list-disc pl-5 space-y-2 mt-2 text-zinc-600 dark:text-zinc-300">
+      <ul className="list-disc pl-5 space-y-2 mt-2 text-muted-foreground">
         <li>
           Conducting classes on Data Structures and Algorithms, Core Java for BTech students, fostering a strong foundation in essential programming concepts.
         </li>
@@ -74,7 +74,7 @@ const milestones: Milestone[] = [
           Serving as a mentor and lead in the Innovation and Entrepreneurship Hub for Educated Rural Youth, guiding aspiring individuals in their entrepreneurial endeavours.
         </li>
         <li>
-          Actively involved with the NGO, dedicating efforts to empower and educate rural youth through various educational initiatives
+          Actively involved with the NGO, dedicating efforts to empower and educate rural youth through various educational initiatives.
         </li>
       </ul>
     )
@@ -84,9 +84,10 @@ const milestones: Milestone[] = [
     title: "Software Engineer 1",
     location: "Fidelity National Information Services, Inc. (FIS), Bangalore, India",
     description: (
-      <ul className="list-disc pl-5 space-y-2 mt-2 text-zinc-600 dark:text-zinc-300">
+      <ul className="list-disc pl-5 space-y-2 mt-2 text-muted-foreground">
         <li>
-          Managed and supported applications utilising Java, Spring, Spring Boot, Struts Framework, Spring Web Flow, JSP, HTML, JavaScript, Jira, Veracode Scans, and SQL. This resulted in notable improvements and faster resolution of Change Requests.</li>
+          Managed and supported applications utilising Java, Spring, Spring Boot, Struts Framework, Spring Web Flow, JSP, HTML, JavaScript, Jira, Veracode Scans, and SQL. This resulted in notable improvements and faster resolution of Change Requests.
+        </li>
         <li>
           Generated extensive technical documentation to facilitate a more efficient onboarding process for new team members.
         </li>
@@ -100,7 +101,7 @@ const milestones: Milestone[] = [
     year: "2024 — Present",
     title: "Software Dev Engineer",
     location: "Amazon, Bangalore, India",
-    description: "Working on making Amazon Price Competitive"
+    description: <span className="text-foreground font-medium">Working on making Amazon Price Competitive</span>
   }
 ];
 
@@ -126,7 +127,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="flex-1">
+    <main className="flex-1 bg-background text-foreground font-mono select-none tracking-tight">
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         <motion.div
           variants={containerVariants}
@@ -137,35 +138,35 @@ export default function AboutPage() {
           {/* Header & Avatar Row */}
           <motion.div 
             variants={itemVariants}
-            className="flex flex-col-reverse md:flex-row gap-10 items-start justify-between"
+            className="flex flex-col-reverse md:flex-row gap-10 items-center justify-between"
           >
-            <div className="space-y-4 max-w-2xl">
-              <p className="text-sm font-mono uppercase tracking-[0.2em] text-emerald-600">
-                Who I Am
+            <div className="space-y-4 max-w-2xl text-left">
+              <p className="text-xs uppercase tracking-widest text-emerald-500 font-semibold animate-pulse">
+                &gt;_ PROFILE_INIT // WHO_I_AM
               </p>
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground bg-gradient-to-r from-zinc-950 to-zinc-700 dark:from-zinc-50 dark:to-zinc-400 bg-clip-text text-transparent">
                 Hi, I'm Lijo Joseph.
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed">
                 A Software Dev Engineer focused on building highly-scalable cloud infrastructure, modular frontends, and performant developer experiences.
               </p>
             </div>
             
             <div className="relative group flex-shrink-0">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 opacity-30 blur group-hover:opacity-55 transition-opacity duration-300" />
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-emerald-500 to-zinc-500 opacity-20 blur" />
               <img
                 src="/images/authors/lijo.jpg"
                 alt="Lijo Joseph"
-                className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl object-cover border border-border bg-muted shadow-md"
+                className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl object-cover border border-border bg-muted shadow-md"
               />
             </div>
           </motion.div>
 
           {/* Detailed Biography */}
-          <motion.div variants={itemVariants} className="grid gap-8 md:grid-cols-3">
-            <div className="md:col-span-2 space-y-6 text-zinc-600 dark:text-zinc-300 leading-relaxed">
-              <h2 className="text-xl font-bold text-foreground font-sans">
-                My Philosophy & Journey
+          <motion.div variants={itemVariants} className="grid gap-8 md:grid-cols-3 text-left">
+            <div className="md:col-span-2 space-y-6 text-xs md:text-sm text-muted-foreground leading-relaxed">
+              <h2 className="text-xl font-bold text-foreground !my-0">
+                // My Philosophy & Journey
               </h2>
               <p>
                 I thrive at the intersection of infrastructure development and application engineering. For me, software engineering isn't just about writing code; it's about understanding how complex systems fail, scaling them reliably under load, and designing clean interfaces that developers love to use.
@@ -178,35 +179,37 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="border border-border p-6 rounded-xl bg-muted/20 space-y-4 h-fit">
-              <h3 className="text-sm font-bold tracking-wider uppercase text-zinc-400 dark:text-zinc-500 font-mono">
-                Quick Facts
+            <div className="border border-border p-5 rounded-xl bg-muted/20 space-y-3 h-fit text-xs">
+              <h3 className="font-bold tracking-wider uppercase text-zinc-400 dark:text-zinc-500">
+                QUICK_FACTS //
               </h3>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li className="flex justify-between border-b border-border/50 pb-1.5">
+              <ul className="space-y-2 text-muted-foreground">
+                <li className="flex justify-between border-b border-border/40 pb-1">
                   <span className="font-medium text-foreground">Location:</span>
                   <span>Bangalore, India</span>
                 </li>
-                <li className="flex justify-between border-b border-border/50 pb-1.5">
+                <li className="flex justify-between border-b border-border/40 pb-1">
                   <span className="font-medium text-foreground">Editor:</span>
                   <span>Neovim / Tmux</span>
                 </li>
-                <li className="flex justify-between pb-1.5">
+                <li className="flex justify-between">
                   <span className="font-medium text-foreground">Status:</span>
-                  <span>Building & Learning</span>
+                  <span className="text-emerald-500 font-bold">Building & Learning</span>
                 </li>
               </ul>
             </div>
           </motion.div>
 
           {/* Interactive Scroll Timeline Section */}
-          <motion.div variants={itemVariants} className="space-y-12">
-            <div className="space-y-3">
-              <p className="text-sm font-mono uppercase tracking-[0.2em] text-emerald-600">
-                Timeline
+          <motion.div variants={itemVariants} className="space-y-12 text-left">
+            <div className="space-y-2">
+              <p className="text-xs uppercase tracking-widest text-emerald-500 font-semibold">
+                EXECUTION_TIMELINE // HISTORY
               </p>
-              <h2 className="text-3xl font-extrabold tracking-tight">Career Map</h2>
-              <p className="text-muted-foreground max-w-2xl">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight !my-0">
+                Career Milestone Map
+              </h2>
+              <p className="text-xs md:text-sm text-muted-foreground font-light max-w-2xl">
                 A chronological look at my educational background and engineering career milestone trajectory.
               </p>
             </div>
@@ -214,7 +217,7 @@ export default function AboutPage() {
             {/* Vertical Timeline container */}
             <div className="relative mt-16 pl-8 md:pl-0">
               {/* Central Line */}
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-emerald-500 via-teal-500 to-zinc-200 dark:to-zinc-800" />
+              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] -translate-x-1/2 bg-gradient-to-b from-emerald-500 via-zinc-500 to-zinc-200 dark:to-zinc-800" />
 
               <div className="space-y-16">
                 {milestones.map((milestone, index) => {
@@ -223,12 +226,10 @@ export default function AboutPage() {
                   const cardVariants: Variants = {
                     hidden: { 
                       opacity: 0, 
-                      x: 0,
                       y: 20
                     },
                     visible: { 
                       opacity: 1, 
-                      x: 0,
                       y: 0,
                       transition: { type: "spring", stiffness: 80, damping: 15, duration: 0.7 }
                     }
@@ -240,7 +241,7 @@ export default function AboutPage() {
                       className="relative md:grid md:grid-cols-2 md:gap-12"
                     >
                       {/* Circle indicator on the timeline */}
-                      <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-1.5 flex items-center justify-center w-6 h-6 rounded-full border-4 border-background bg-emerald-600 shadow-md z-10" />
+                      <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-1.5 flex items-center justify-center w-3 h-3 rounded-full border-2 border-background bg-emerald-500 shadow-sm z-10" />
 
                       {/* Content Placement */}
                       {/* Desktop Left Side Card */}
@@ -251,12 +252,12 @@ export default function AboutPage() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-120px" }}
-                            className="border border-border p-6 rounded-2xl bg-muted/10 hover:bg-muted/30 transition-all shadow-sm max-w-md w-full"
+                            className="border border-border p-5 rounded-xl bg-muted/10 hover:border-emerald-500/30 transition-all max-w-md w-full space-y-2"
                           >
-                            <span className="text-xs font-mono text-emerald-600 font-bold block mb-2">{milestone.year}</span>
-                            <h3 className="text-lg font-bold text-foreground">{milestone.title}</h3>
-                            <h4 className="text-sm font-semibold text-muted-foreground mt-0.5 mb-3">{milestone.location}</h4>
-                            <div className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{milestone.description}</div>
+                            <span className="text-xs font-bold text-emerald-500 block">{milestone.year}</span>
+                            <h3 className="text-base font-bold text-foreground !my-0">{milestone.title}</h3>
+                            <h4 className="text-xs font-normal text-muted-foreground italic !mt-0.5">{milestone.location}</h4>
+                            <div className="text-xs md:text-sm text-muted-foreground pt-2 leading-relaxed border-t border-border/40">{milestone.description}</div>
                           </motion.div>
                         )}
                       </div>
@@ -269,12 +270,12 @@ export default function AboutPage() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-120px" }}
-                            className="border border-border p-6 rounded-2xl bg-muted/10 hover:bg-muted/30 transition-all shadow-sm max-w-md w-full"
+                            className="border border-border p-5 rounded-xl bg-muted/10 hover:border-emerald-500/30 transition-all max-w-md w-full space-y-2"
                           >
-                            <span className="text-xs font-mono text-emerald-600 font-bold block mb-2">{milestone.year}</span>
-                            <h3 className="text-lg font-bold text-foreground">{milestone.title}</h3>
-                            <h4 className="text-sm font-semibold text-muted-foreground mt-0.5 mb-3">{milestone.location}</h4>
-                            <div className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{milestone.description}</div>
+                            <span className="text-xs font-bold text-emerald-500 block">{milestone.year}</span>
+                            <h3 className="text-base font-bold text-foreground !my-0">{milestone.title}</h3>
+                            <h4 className="text-xs font-normal text-muted-foreground italic !mt-0.5">{milestone.location}</h4>
+                            <div className="text-xs md:text-sm text-muted-foreground pt-2 leading-relaxed border-t border-border/40">{milestone.description}</div>
                           </motion.div>
                         )}
                       </div>
@@ -286,12 +287,12 @@ export default function AboutPage() {
                           initial="hidden"
                           whileInView="visible"
                           viewport={{ once: true, margin: "-120px" }}
-                          className="border border-border p-6 rounded-2xl bg-muted/10 hover:bg-muted/30 transition-all shadow-sm w-full"
+                          className="border border-border p-5 rounded-xl bg-muted/10 hover:border-emerald-500/30 transition-all w-full space-y-2"
                         >
-                          <span className="text-xs font-mono text-emerald-600 font-bold block mb-2">{milestone.year}</span>
-                          <h3 className="text-lg font-bold text-foreground">{milestone.title}</h3>
-                          <h4 className="text-sm font-semibold text-muted-foreground mt-0.5 mb-3">{milestone.location}</h4>
-                          <div className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{milestone.description}</div>
+                          <span className="text-xs font-bold text-emerald-500 block">{milestone.year}</span>
+                          <h3 className="text-base font-bold text-foreground !my-0">{milestone.title}</h3>
+                          <h4 className="text-xs font-normal text-muted-foreground italic !mt-0.5">{milestone.location}</h4>
+                          <div className="text-xs md:text-sm text-muted-foreground pt-2 leading-relaxed border-t border-border/40">{milestone.description}</div>
                         </motion.div>
                       </div>
 
@@ -303,35 +304,32 @@ export default function AboutPage() {
           </motion.div>
 
           {/* Specialties / Core Focus Area */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <h2 className="text-xl font-bold tracking-tight">Core Areas of Focus</h2>
+          <motion.div variants={itemVariants} className="space-y-6 text-left">
+            <h2 className="text-xl font-bold tracking-tight text-foreground">// Core Areas of Focus</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="border border-border p-5 rounded-xl space-y-2.5 bg-muted/10">
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 font-bold">
-                  λ
+              <div className="border border-border p-5 rounded-xl space-y-2 bg-muted/10">
+                <div className="text-sm font-bold text-foreground flex items-center gap-2">
+                  <span className="text-emerald-500 font-bold">λ</span> Distributed Systems
                 </div>
-                <h3 className="font-bold">Distributed Systems</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   Designing highly resilient distributed setups, cloud API topologies, and multi-region microservice communication systems.
                 </p>
               </div>
 
-              <div className="border border-border p-5 rounded-xl space-y-2.5 bg-muted/10">
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 font-bold">
-                  ☁
+              <div className="border border-border p-5 rounded-xl space-y-2 bg-muted/10">
+                <div className="text-sm font-bold text-foreground flex items-center gap-2">
+                  <span className="text-emerald-500 font-bold">☁</span> Cloud Infrastructure
                 </div>
-                <h3 className="font-bold">Cloud Infrastructure</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   Automating cloud provisioning, managing containers orchestrators, and continuous integration/delivery loops (CI/CD).
                 </p>
               </div>
 
-              <div className="border border-border p-5 rounded-xl space-y-2.5 bg-muted/10">
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 font-bold">
-                  ⚛
+              <div className="border border-border p-5 rounded-xl space-y-2 bg-muted/10">
+                <div className="text-sm font-bold text-foreground flex items-center gap-2">
+                  <span className="text-emerald-500 font-bold">⚛</span> Modern Web UX
                 </div>
-                <h3 className="font-bold">Modern Web UX</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   Crafting hyper-optimized web user interfaces leveraging Next.js React patterns, strict TypeScript typing, and accessible design systems.
                 </p>
               </div>
@@ -343,25 +341,25 @@ export default function AboutPage() {
             variants={itemVariants} 
             className="flex flex-col sm:flex-row items-center justify-between border-t border-border pt-12 gap-6"
           >
-            <div className="space-y-1 text-center sm:text-left">
-              <h3 className="font-bold text-lg">Let's build something together</h3>
-              <p className="text-sm text-muted-foreground">Feel free to reach out for architectural advisory or speaking events.</p>
+            <div className="space-y-1 text-center sm:text-left font-mono">
+              <h3 className="font-bold text-lg text-foreground">Let's build something together</h3>
+              <p className="text-xs text-muted-foreground">Available for architectural advisory, cloud configuration consulting, or custom panel events.</p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center max-w-xs sm:max-w-none">
               <a
                 href="https://github.com/lijojosef"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-muted transition-colors"
+                className="border border-border px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase hover:bg-muted/40 transition-colors bg-background text-center"
               >
-                GitHub
+                [CONNECT_VIA_GITHUB]
               </a>
-              <Link
+              <a
                 href="/"
-                className="rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-700 transition-colors shadow-sm"
+                className="border border-emerald-500/30 text-emerald-500 px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase hover:bg-emerald-500/[0.04] transition-colors bg-background text-center"
               >
-                Back to Blog
-              </Link>
+                [BACK TO BLOG]
+              </a>
             </div>
           </motion.div>
         </motion.div>
