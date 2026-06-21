@@ -22,38 +22,39 @@ export default function BlogHomepage() {
   );
 
   return (
-    <main>
+    <main className="flex-1 font-mono select-none tracking-tight transition-colors duration-200 bg-white text-zinc-900 [@media(prefers-color-scheme:dark)]:bg-zinc-950 [@media(prefers-color-scheme:dark)]:text-zinc-50">
       {/* Hero Section */}
       <Hero />
 
-      <div className="max-w-4xl mx-auto px-6 pb-12 space-y-16">
-        {/* Featured Post */}
+      <div className="max-w-4xl mx-auto px-6 pb-24 space-y-24">
+        
+        {/* Featured Post Section */}
         {featuredPost && (
-          <section className="space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-primary uppercase bg-secondary px-2.5 py-1 rounded-full">
-              Featured Post
+          <section className="space-y-6">
+            <div className="space-y-1 text-left">
+              <p className="text-xs uppercase tracking-widest text-emerald-600 [@media(prefers-color-scheme:dark)]:text-emerald-400 font-semibold animate-pulse">
+                &gt;_ FEATURED_INDEX // SYSTEM_PICK
+              </p>
             </div>
 
-            <article className="group relative flex flex-col md:flex-row gap-8 items-start border border-border p-6 rounded-xl hover:bg-muted/30 transition-colors">
-              <div className="flex-1 space-y-3">
-                <p className="text-sm text-muted-foreground">
-                  {new Date(
-                    featuredPost.metadata.publishedAt
-                  ).toLocaleDateString("en-US", {
-                    month: "long",
-                    day: "numeric",
+            <article className="group relative flex flex-col gap-4 border border-zinc-200 [@media(prefers-color-scheme:dark)]:border-zinc-800 p-6 rounded-xl hover:border-emerald-600/30 [@media(prefers-color-scheme:dark)]:hover:border-emerald-400/30 transition-all bg-zinc-50/30 [@media(prefers-color-scheme:dark)]:bg-zinc-900/10">
+              <div className="space-y-3 text-left">
+                <p className="text-xs text-zinc-500 [@media(prefers-color-scheme:dark)]:text-zinc-400">
+                  SYS_DATE: {new Date(featuredPost.metadata.publishedAt).toLocaleDateString("en-US", {
+                    month: "2-digit",
+                    day: "2-digit",
                     year: "numeric",
-                  })}
+                  }).replace(/\//g, "-")}
                 </p>
 
-                <h2 className="text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">
+                <h2 className="text-2xl font-bold tracking-tight text-zinc-900 [@media(prefers-color-scheme:dark)]:text-zinc-50 inline-block relative">
                   <Link href={`/blog/${featuredPost.slug}`}>
                     <span className="absolute inset-0" />
                     {featuredPost.metadata.title}
                   </Link>
                 </h2>
 
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-xs md:text-sm text-zinc-600 [@media(prefers-color-scheme:dark)]:text-zinc-400 leading-relaxed font-light">
                   {featuredPost.metadata.summary}
                 </p>
 
@@ -61,7 +62,7 @@ export default function BlogHomepage() {
                   {featuredPost.metadata.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs bg-muted border border-border px-2 py-0.5 rounded text-muted-foreground font-mono"
+                      className="text-xs border border-zinc-200 [@media(prefers-color-scheme:dark)]:border-zinc-800/60 px-2 py-0.5 rounded text-zinc-500 [@media(prefers-color-scheme:dark)]:text-zinc-400 bg-zinc-100/50 [@media(prefers-color-scheme:dark)]:bg-zinc-900/40 font-mono"
                     >
                       #{tag.toLowerCase()}
                     </span>
@@ -72,37 +73,40 @@ export default function BlogHomepage() {
           </section>
         )}
 
-        {/* Latest Posts */}
+        {/* Latest Writing Section */}
         <section id="posts" className="space-y-6">
-          <h3 className="text-xl font-semibold tracking-tight">
-            Latest Writing
-          </h3>
+          <div className="space-y-1 text-left">
+            <p className="text-xs uppercase tracking-widest text-emerald-600 [@media(prefers-color-scheme:dark)]:text-emerald-400 font-semibold">
+              EXECUTION_TIMELINE // ARCHIVE
+            </p>
+            <h3 className="text-2xl font-bold tracking-tight text-zinc-900 [@media(prefers-color-scheme:dark)]:text-zinc-50 !my-0">
+              Latest Writing
+            </h3>
+          </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             {regularPosts.map((post) => (
               <article
                 key={post.slug}
-                className="group relative flex flex-col justify-between border border-border p-5 rounded-xl hover:bg-muted/30 transition-colors"
+                className="group relative flex flex-col justify-between border border-zinc-200 [@media(prefers-color-scheme:dark)]:border-zinc-800 p-5 rounded-xl hover:border-emerald-600/30 [@media(prefers-color-scheme:dark)]:hover:border-emerald-400/30 transition-all bg-zinc-50/30 [@media(prefers-color-scheme:dark)]:bg-zinc-900/10 text-left"
               >
                 <div className="space-y-2.5">
-                  <p className="text-xs text-muted-foreground">
-                    {new Date(
-                      post.metadata.publishedAt
-                    ).toLocaleDateString("en-US", {
+                  <p className="text-xs text-zinc-500 [@media(prefers-color-scheme:dark)]:text-zinc-400">
+                    {new Date(post.metadata.publishedAt).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
                       year: "numeric",
                     })}
                   </p>
 
-                  <h4 className="text-lg font-bold group-hover:text-primary transition-colors">
+                  <h4 className="text-base font-bold text-zinc-900 [@media(prefers-color-scheme:dark)]:text-zinc-50 tracking-tight !my-0">
                     <Link href={`/blog/${post.slug}`}>
                       <span className="absolute inset-0" />
                       {post.metadata.title}
                     </Link>
                   </h4>
 
-                  <p className="text-sm text-muted-foreground line-clamp-2">
+                  <p className="text-xs md:text-sm text-zinc-600 [@media(prefers-color-scheme:dark)]:text-zinc-400 font-light line-clamp-2 leading-relaxed">
                     {post.metadata.summary}
                   </p>
                 </div>
@@ -111,7 +115,7 @@ export default function BlogHomepage() {
                   {post.metadata.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] bg-muted px-1.5 py-0.5 rounded text-muted-foreground font-mono"
+                      className="text-[10px] border border-zinc-200 [@media(prefers-color-scheme:dark)]:border-zinc-800/60 px-1.5 py-0.5 rounded text-zinc-500 [@media(prefers-color-scheme:dark)]:text-zinc-400 bg-zinc-100/50 [@media(prefers-color-scheme:dark)]:bg-zinc-900/40 font-mono"
                     >
                       #{tag.toLowerCase()}
                     </span>
