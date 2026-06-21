@@ -74,7 +74,7 @@ const milestones: Milestone[] = [
           Serving as a mentor and lead in the Innovation and Entrepreneurship Hub for Educated Rural Youth, guiding aspiring individuals in their entrepreneurial endeavours.
         </li>
         <li>
-          Actively involved with the NGO since March 2023, dedicating efforts to empower and educate rural youth through various educational initiatives
+          Actively involved with the NGO, dedicating efforts to empower and educate rural youth through various educational initiatives
         </li>
       </ul>
     )

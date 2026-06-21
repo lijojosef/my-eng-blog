@@ -12,6 +12,7 @@ export interface BlogFrontmatter {
   coverImage: string;
   status: 'draft' | 'published';
   featured: boolean;
+  layout?: 'default' | 'presentation';
 }
 export interface Post {
   slug: string;
