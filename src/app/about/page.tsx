@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 
 interface Milestone {
@@ -105,7 +105,7 @@ const milestones: Milestone[] = [
 ];
 
 export default function AboutPage() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -116,7 +116,7 @@ export default function AboutPage() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
@@ -220,8 +220,7 @@ export default function AboutPage() {
                 {milestones.map((milestone, index) => {
                   const isEven = index % 2 === 0;
                   
-                  // Animation settings for entries
-                  const cardVariants = {
+                  const cardVariants: Variants = {
                     hidden: { 
                       opacity: 0, 
                       x: 0,
@@ -257,7 +256,7 @@ export default function AboutPage() {
                             <span className="text-xs font-mono text-emerald-600 font-bold block mb-2">{milestone.year}</span>
                             <h3 className="text-lg font-bold text-foreground">{milestone.title}</h3>
                             <h4 className="text-sm font-semibold text-muted-foreground mt-0.5 mb-3">{milestone.location}</h4>
-                            <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{milestone.description}</p>
+                            <div className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{milestone.description}</div>
                           </motion.div>
                         )}
                       </div>
@@ -275,7 +274,7 @@ export default function AboutPage() {
                             <span className="text-xs font-mono text-emerald-600 font-bold block mb-2">{milestone.year}</span>
                             <h3 className="text-lg font-bold text-foreground">{milestone.title}</h3>
                             <h4 className="text-sm font-semibold text-muted-foreground mt-0.5 mb-3">{milestone.location}</h4>
-                            <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{milestone.description}</p>
+                            <div className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{milestone.description}</div>
                           </motion.div>
                         )}
                       </div>
@@ -292,7 +291,7 @@ export default function AboutPage() {
                           <span className="text-xs font-mono text-emerald-600 font-bold block mb-2">{milestone.year}</span>
                           <h3 className="text-lg font-bold text-foreground">{milestone.title}</h3>
                           <h4 className="text-sm font-semibold text-muted-foreground mt-0.5 mb-3">{milestone.location}</h4>
-                          <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{milestone.description}</p>
+                          <div className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{milestone.description}</div>
                         </motion.div>
                       </div>
 
