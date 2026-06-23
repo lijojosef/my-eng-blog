@@ -21,7 +21,7 @@ export default function Navbar() {
       <header className="sticky top-0 z-40 w-full border-b border-zinc-100 [@media(prefers-color-scheme:dark)]:border-zinc-900 bg-zinc-50/80 [@media(prefers-color-scheme:dark)]:bg-zinc-950/80 backdrop-blur-md">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="text-xs font-bold tracking-tight text-zinc-900 [@media(prefers-color-scheme:dark)]:text-zinc-50">
-            &gt;_ INTI_CORE // LIJO_JOSEPH
+            &gt;_ ENGINEERING_FOR_DUMMIES // LIJO_JOSEPH
           </Link>
           
           <nav className="flex items-center gap-6">

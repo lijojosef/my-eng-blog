@@ -14,7 +14,7 @@ export default function Hero() {
         >
           {/* Pulsing Terminal Identifier */}
           <p className="text-xs uppercase tracking-widest text-emerald-600 [@media(prefers-color-scheme:dark)]:text-emerald-400 font-semibold animate-pulse">
-            &gt;_ INTI_CORE // LIJO_JOSEPH
+            &gt;_ ENGINEERING_FOR_DUMMIES // LIJO_JOSEPH
           </p>
 
           {/* High-contrast Title */}
