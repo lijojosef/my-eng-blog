@@ -26,7 +26,7 @@ export default function Navbar() {
           
           <nav className="flex items-center gap-6">
             <Link href="/about" className="text-xs text-zinc-600 [@media(prefers-color-scheme:dark)]:text-zinc-400 hover:text-zinc-900 [@media(prefers-color-scheme:dark)]:hover:text-zinc-50 transition-colors">
-              /about
+              /whoami
             </Link>
             <button
               onClick={() => setIsOpen(true)}
