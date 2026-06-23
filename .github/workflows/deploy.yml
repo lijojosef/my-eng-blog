@@ -31,12 +31,12 @@ jobs:
           
           # Install application dependencies and allow native architecture binaries to pull down
           npm install -g pnpm
-          # Highlight-start
           pnpm install --frozen-lockfile
-          # Highlight-end
 
       # Step 4: Statically compile the Markdown blog
       - name: Build Next.js Static Export
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
         run: |
           pnpm run build
 

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
-import { getAllPosts, generateRssFeed } from "@/lib/mdx"; // 1. Added the generateRssFeed import
+import { getAllPosts, generateRssFeed } from "@/lib/mdx"; 
 
-export default function BlogHomepage() {
-  // 2. Execute the RSS parser to output the public target folder asset during builds
+// 1. Converted to an async function to support await statements during build pipeline
+export default async function BlogHomepage() {
+  
+  // 2. Execute the RSS & Buttondown network sync, ensuring the build waits for resolution
   if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
-    generateRssFeed();
+    await generateRssFeed();
   }
 
   // Fetch all posts

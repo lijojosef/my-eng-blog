@@ -52,13 +52,87 @@ export function getAllPosts(): Post[] {
 }
 
 /**
+ * Communicates with the Buttondown REST API to broadcast the newest post safely
+ */
+async function syncLatestPostToButtondown(latestPost: Post) {
+
+  if (!process.env.GITHUB_ACTIONS) {
+    console.log("Local build detected. Skipping Buttondown newsletter sync.");
+    return;
+  }
+
+  const API_KEY = process.env.BUTTONDOWN_API_KEY;
+
+  if (!API_KEY) {
+    console.warn("BUTTONDOWN_API_KEY is not defined. Skipping newsletter broadcast.");
+    return;
+  }
+
+  try {
+    // 1. Fetch recent emails from Buttondown to prevent duplicate spam
+    const checkRes = await fetch("https://api.buttondown.com/v1/emails", {
+      headers: { "Authorization": `Token ${API_KEY}` }
+    });
+
+    if (!checkRes.ok) {
+      throw new Error(`Failed to fetch history: ${checkRes.statusText}`);
+    }
+
+    const historicalData = await checkRes.json();
+    const emailResults = historicalData.results || [];
+
+    // 2. Prevent duplicate blasts if this post was already broadcasted
+    const alreadySent = emailResults.some(
+      (email: { subject: string }) => email.subject === latestPost.metadata.title
+    );
+
+    if (alreadySent) {
+      console.log(`Skip: Newsletter for "${latestPost.metadata.title}" was already sent.`);
+      return;
+    }
+
+    console.log(`Dispatching newsletter broadcast: "${latestPost.metadata.title}"...`);
+
+    // 3. Post full content body to Buttondown
+    const dispatchRes = await fetch("https://api.buttondown.com/v1/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Token ${API_KEY}`,
+        "Content-Type": "application/json",
+        "X-Buttondown-Live-Dangerously": "true" // Confirms programmatic send on free plans
+      },
+      body: JSON.stringify({
+        subject: latestPost.metadata.title,
+        body: latestPost.content, // Sends full MDX body text
+        status: "about_to_send"    // Sends instantly to verified subscribers
+      })
+    });
+
+    if (dispatchRes.ok) {
+      console.log("Buttondown newsletter broadcast dispatched successfully!");
+    } else {
+      const errPayload = await dispatchRes.json();
+      console.error("Buttondown API rejection payload:", errPayload);
+    }
+  } catch (error) {
+    console.error("Failed to process Buttondown integration sync:", error);
+  }
+}
+
+/**
  * Compiles published articles into a structured XML RSS feed format for distribution
  */
-export function generateRssFeed() {
+export async function generateRssFeed() {
   // Filter out any hidden drafts to ensure code delivery safety
   const posts = getAllPosts().filter((post) => post.metadata.status === "published");
 
   const siteUrl = "https://my-eng-blog.web.app";
+
+  // 👇 Intercept the newest post and process the newsletter delivery queue
+  if (posts.length > 0) {
+    const latestPost = posts[0]; 
+    await syncLatestPostToButtondown(latestPost);
+  }
 
   const rssItems = posts
     .map((post) => `
