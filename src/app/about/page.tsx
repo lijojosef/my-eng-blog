@@ -12,22 +12,48 @@ interface Milestone {
 
 const milestones: Milestone[] = [
   {
-    year: "2016 — 2020",
-    title: "B.Tech. in Computer Science & Engineering",
-    location: "APJ Abdul Kalam Technological University, Kerala, India",
+    year: "2024 — Present",
+    title: "Software Dev Engineer",
+    location: "Amazon, Bangalore, India",
+    description: <span className="text-foreground font-medium">Working on making Amazon Price Competitive</span>
+  },
+  {
+    year: "2022 — 2024",
+    title: "Software Engineer 1",
+    location: "Fidelity National Information Services, Inc. (FIS), Bangalore, India",
     description: (
-      <>
-        Graduated in Computer Science and Engineering. Specialized in computer architecture, 
-        systems programming, and computer networks. Built a fully functional{" "}
-        <a 
-          href="https://github.com/lijojosef/traffic_congestion_control" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-emerald-500 hover:underline font-medium"
-        >
-          Traffic Congestion Control System
-        </a>.
-      </>
+      <ul className="list-disc pl-5 space-y-2 mt-2 text-muted-foreground">
+        <li>
+          Managed and supported applications utilising Java, Spring, Spring Boot, Struts Framework, Spring Web Flow, JSP, HTML, JavaScript, Jira, Veracode Scans, and SQL. This resulted in notable improvements and faster resolution of Change Requests.
+        </li>
+        <li>
+          Generated extensive technical documentation to facilitate a more efficient onboarding process for new team members.
+        </li>
+        <li>
+          Executed code enhancements and bug repairs, leading to overall improvements in application performance and heightened customer satisfaction.
+        </li>
+      </ul>
+    )
+  },
+  {
+    year: "2022 — Present",
+    title: "Mentor",
+    location: "SURE Trust ProEd, Remote",
+    description: (
+      <ul className="list-disc pl-5 space-y-2 mt-2 text-muted-foreground">
+        <li>
+          Conducting classes on Data Structures and Algorithms, Core Java for BTech students, fostering a strong foundation in essential programming concepts.
+        </li>
+        <li>
+          Delivering instructional sessions in Java programming, contributing to students' proficiency in this versatile language.
+        </li>
+        <li>
+          Serving as a mentor and lead in the Innovation and Entrepreneurship Hub for Educated Rural Youth, guiding aspiring individuals in their entrepreneurial endeavours.
+        </li>
+        <li>
+          Actively involved with the NGO, dedicating efforts to empower and educate rural youth through various educational initiatives.
+        </li>
+      </ul>
     )
   },
   {
@@ -59,49 +85,23 @@ const milestones: Milestone[] = [
     )
   },
   {
-    year: "2022 — Present",
-    title: "Mentor",
-    location: "SURE Trust ProEd, Remote",
+    year: "2016 — 2020",
+    title: "B.Tech. in Computer Science & Engineering",
+    location: "APJ Abdul Kalam Technological University, Kerala, India",
     description: (
-      <ul className="list-disc pl-5 space-y-2 mt-2 text-muted-foreground">
-        <li>
-          Conducting classes on Data Structures and Algorithms, Core Java for BTech students, fostering a strong foundation in essential programming concepts.
-        </li>
-        <li>
-          Delivering instructional sessions in Java programming, contributing to students' proficiency in this versatile language.
-        </li>
-        <li>
-          Serving as a mentor and lead in the Innovation and Entrepreneurship Hub for Educated Rural Youth, guiding aspiring individuals in their entrepreneurial endeavours.
-        </li>
-        <li>
-          Actively involved with the NGO, dedicating efforts to empower and educate rural youth through various educational initiatives.
-        </li>
-      </ul>
+      <>
+        Graduated in Computer Science and Engineering. Specialized in computer architecture, 
+        systems programming, and computer networks. Built a fully functional{" "}
+        <a 
+          href="https://github.com/lijojosef/traffic_congestion_control" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-emerald-500 hover:underline font-medium"
+        >
+          Traffic Congestion Control System
+        </a>.
+      </>
     )
-  },
-  {
-    year: "2022 — 2024",
-    title: "Software Engineer 1",
-    location: "Fidelity National Information Services, Inc. (FIS), Bangalore, India",
-    description: (
-      <ul className="list-disc pl-5 space-y-2 mt-2 text-muted-foreground">
-        <li>
-          Managed and supported applications utilising Java, Spring, Spring Boot, Struts Framework, Spring Web Flow, JSP, HTML, JavaScript, Jira, Veracode Scans, and SQL. This resulted in notable improvements and faster resolution of Change Requests.
-        </li>
-        <li>
-          Generated extensive technical documentation to facilitate a more efficient onboarding process for new team members.
-        </li>
-        <li>
-          Executed code enhancements and bug repairs, leading to overall improvements in application performance and heightened customer satisfaction.
-        </li>
-      </ul>
-    )
-  },
-  {
-    year: "2024 — Present",
-    title: "Software Dev Engineer",
-    location: "Amazon, Bangalore, India",
-    description: <span className="text-foreground font-medium">Working on making Amazon Price Competitive</span>
   }
 ];
 
