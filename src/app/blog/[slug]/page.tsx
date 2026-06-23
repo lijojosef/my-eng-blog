@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }: BlogParams) {
       This forces the page to directly listen to the computer's OS theme state,
       bypassing any blocking ThemeProviders or Next-Theme context issues.
     */
-    <main className="flex-1 font-mono select-none tracking-tight transition-colors duration-200 bg-white text-zinc-900 [@media(prefers-color-scheme:dark)]:bg-zinc-950 [@media(prefers-color-scheme:dark)]:text-zinc-50">
+    <main className="flex-1 font-mono select-text tracking-tight transition-colors duration-200 bg-white text-zinc-900 [@media(prefers-color-scheme:dark)]:bg-zinc-950 [@media(prefers-color-scheme:dark)]:text-zinc-50">
       <article className="max-w-4xl mx-auto px-6 py-16 md:py-24 space-y-12">
         
         {/* Terminal Header Row */}
