@@ -16,6 +16,8 @@ jobs:
       # Step 1: Clone the codebase
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # Step 2: Provision a clean Node 24 environment
       - name: Setup Node.js
