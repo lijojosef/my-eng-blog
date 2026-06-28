@@ -155,10 +155,9 @@ export default function AboutPage() {
             <div className="relative group flex-shrink-0">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-emerald-500 to-zinc-500 opacity-20 blur" />
               <img
-                src="/images/authors/lijo.jpg"
+                src="/images/profile_pic.jpeg"
                 alt="Lijo Joseph"
-                className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl object-cover border border-border bg-muted shadow-md"
-              />
+                className="relative w-56 h-56 rounded-2xl object-cover border border-border bg-muted shadow-md"              />
             </div>
           </motion.div>
 
