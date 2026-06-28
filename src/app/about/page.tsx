@@ -127,7 +127,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="flex-1 bg-background text-foreground font-mono select-none tracking-tight">
+    <main data-build="force-update-1" className="flex-1 bg-background text-foreground font-mono select-none tracking-tight">
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         <motion.div
           variants={containerVariants}
