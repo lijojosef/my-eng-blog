@@ -898,41 +898,36 @@ layout: "presentation"
     {/* Right Column: Speaker Meta & QR Resource Card */}
     <div className="border border-zinc-200 [@media(prefers-color-scheme:dark)]:border-zinc-800 rounded-xl p-5 bg-zinc-50/40 [@media(prefers-color-scheme:dark)]:bg-zinc-900/20 space-y-5 flex flex-col justify-between hover:border-emerald-500/20 transition-colors">
       
-      {/* QR Code & Deck Link */}
+      {/* Live QR Code & Document Link */}
       <div className="flex items-center gap-4">
-        {/* Minimal Stylized QR Code Placeholder */}
-        <div className="w-24 h-24 rounded-lg border border-zinc-300 [@media(prefers-color-scheme:dark)]:border-zinc-700 bg-white p-2 shrink-0 flex flex-col justify-between shadow-sm">
-          <div className="flex justify-between">
-            <div className="w-5 h-5 border-2 border-zinc-900 bg-zinc-900/20 flex items-center justify-center">
-              <div className="w-2 h-2 bg-zinc-900" />
-            </div>
-            <div className="w-5 h-5 border-2 border-zinc-900 bg-zinc-900/20 flex items-center justify-center">
-              <div className="w-2 h-2 bg-zinc-900" />
-            </div>
-          </div>
-          <div className="grid grid-cols-3 gap-0.5 px-1">
-            <div className="h-1 bg-zinc-900 rounded-xs" />
-            <div className="h-1 bg-transparent" />
-            <div className="h-1 bg-zinc-900 rounded-xs" />
-          </div>
-          <div className="flex justify-between items-end">
-            <div className="w-5 h-5 border-2 border-zinc-900 bg-zinc-900/20 flex items-center justify-center">
-              <div className="w-2 h-2 bg-zinc-900" />
-            </div>
-            <div className="w-2.5 h-2.5 bg-emerald-600 rounded-xs" />
-          </div>
-        </div>
+        <a
+          href="https://docs.google.com/document/d/19BehVOc7jZbUa-LIFcXu3ck8MWr5IRCTImKH0PHlUMI/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-24 h-24 rounded-lg border border-zinc-300 [@media(prefers-color-scheme:dark)]:border-zinc-700 bg-white p-1 shrink-0 overflow-hidden shadow-sm hover:ring-2 hover:ring-emerald-500 transition-all flex items-center justify-center"
+        >
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F19BehVOc7jZbUa-LIFcXu3ck8MWr5IRCTImKH0PHlUMI%2Fedit%3Fusp%3Dsharing"
+            alt="Scan for Slide Deck, Capstone Rubrics & Reading List"
+            className="w-full h-full object-contain"
+          />
+        </a>
 
         <div className="space-y-1.5">
           <div className="text-xs font-bold text-zinc-900 [@media(prefers-color-scheme:dark)]:text-zinc-50">
             Scan for Resources
           </div>
           <div className="text-[11px] text-zinc-500 [@media(prefers-color-scheme:dark)]:text-zinc-400 font-light leading-snug">
-            Full slide deck, capstone verification rubrics, research citations, and reading list.
+            Slide deck notes, capstone verification rubrics, and reading list.
           </div>
-          <div className="text-[10px] text-emerald-600 [@media(prefers-color-scheme:dark)]:text-emerald-400 font-mono font-medium">
-            github.com/lijojoseph
-          </div>
+          <a
+            href="https://docs.google.com/document/d/19BehVOc7jZbUa-LIFcXu3ck8MWr5IRCTImKH0PHlUMI/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-[10px] text-emerald-600 [@media(prefers-color-scheme:dark)]:text-emerald-400 font-mono font-medium underline underline-offset-2 hover:text-emerald-500 transition-colors"
+          >
+            Open Document ↗
+          </a>
         </div>
       </div>
 
@@ -948,7 +943,14 @@ layout: "presentation"
         </div>
         <div className="flex justify-between items-center">
           <span className="text-zinc-400 uppercase text-[10px] tracking-wider">Twitter / X</span>
-          <span className="text-emerald-600 [@media(prefers-color-scheme:dark)]:text-emerald-400 font-mono">@lijojosef</span>
+          <a
+            href="https://x.com/lijojosef"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-600 [@media(prefers-color-scheme:dark)]:text-emerald-400 font-mono hover:underline"
+          >
+            @lijojosef
+          </a>
         </div>
       </div>
 
